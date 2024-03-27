@@ -3,9 +3,25 @@ import Square from './Square'
 import "./Board.css";
 
 export default class Board extends Component {
-    renderSqaure(i){
-        return <Square />
+
+  constructor(props){
+    super(props);
+    this.state = {
+      squares : Array(9).fill(null),
     }
+    console.log(this.state);
+  }
+
+  renderSqaure(i){
+    return <Square value={this.state.squares[i]} 
+              onClick={()=>{this.handleClick(i); }}
+            />
+  }
+  handleClick(i){
+    const squares = this.state.squares.slice(); //원본 배열을 바꾸지 않기위해서?
+    squares[i] = 'X';
+    this.setState({squares : squares});
+  }
   render() {
     return (
       <div>
