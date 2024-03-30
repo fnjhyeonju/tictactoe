@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React from "react";
 import "./Square.css";
 
 const Square = (props)=>{
